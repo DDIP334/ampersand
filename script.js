@@ -1,3 +1,29 @@
+
+function copyToClipboard(element) {
+    const codeText = document.querySelector(element).innerText;
+
+    // Use the modern Clipboard API
+    navigator.clipboard.writeText(codeText).then(() => {
+        // Success - show notification
+        showNotification("Code copied to clipboard!");
+    }).catch(err => {
+        // Handle errors if any
+        console.error('Failed to copy: ', err);
+    });
+}
+
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.innerText = message;
+    document.body.appendChild(notification);
+
+    // Automatically remove the notification after 3 seconds
+    setTimeout(() => {
+        notification.remove();
+    }, 3000); // 3 seconds
+}
+
 function toggleContent(id) {
     const content = document.getElementById(id);
     content.classList.toggle('hidden');
