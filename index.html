@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learners-Site</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="light-theme">
+    <header>
+        <button id="theme-toggle">Dark/Light Mode</button>
+        <h1>Welcome to Learners Site</h1>
+        <nav>
+            <ul>
+                <li><a href="#tutorials">Brief</a></li>
+                <li><a href="#code-snippets">Code</a></li>
+                <li><a href="#articles">Articles</a></li>
+                <li><a href="#entertainment">Entertainment</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+
+    <main>
+        <section id="tutorials">
+            <h2>Programming Tutorials</h2>
+            <div class="content-box">
+                <article>
+                    <h3>Learn C-Programme</h3>
+                    <p>C is a general-purpose programming language created by Dennis Ritchie at the Bell Laboratories in 1972.
+
+                        It is a fundamental language in the field of computer science.
+                        
+                        C is strongly associated with UNIX, as it was developed to write the UNIX operating system.</p>
+                    <button onclick="toggleContent('html-content')">Read More</button>
+                    <div id="html-content" class="hidden content">
+                        <p>C programme Examples</p>
+                    </div>
+                </article>
+
+                
+            
+        </section>
+
+        <section id="code-snippets">
+            <h3>#1.  WAP TO FILL-UP THE GIVEN MATRIX ACCORDING TO THE FIGURE.</h3>
+            <img src="figure.jpg" alt="question figure"/>
+            <div class="snippet">
+                <pre><code class="language-C">
+                    #include<stdio.h>
+                        #include<conio.h>
+                        int main() {
+                            int i,j,a[4][4],even=2,odd=1;
+                            printf("\nfor Indexing the value in the required place for pattern:\n");
+                            for(i=0; i<4; i++) {
+                                for(j=0; j<4; j++) {
+                                    if(i==j) {
+                                        a[i][j]=even;
+                                        even=even+2;
+                                    }
+                                }
+                            }
+                            for(i=0; i<4; i++) {
+                                for(j=0; j<4; j++) {
+                                    if(i+j==3) {
+                                        a[i][j]=odd;
+                                        odd=odd+2;
+                                    }
+                                }
+                            }
+                            for(i=0; i<4; i++) {
+                                for(j=0; j<4; j++) {
+                                    if(i!=j && i+j!=3) {
+                                        a[i][j]=0;
+                                    }
+                                }
+                            }
+                            for(i=0; i<4; i++) {
+                                for(j=0; j<4; j++) {
+                                    printf("%3d\t",a[i][j]);
+                                }
+                                printf("\n");
+                            }
+                            printf("\nHence the Required Pattern is :\n");
+                            for(i=0; i<4; i++) {
+                                for(j=0; j<4; j++) {
+                                    if(i==j||i+j==3) {
+                                        printf("%d\t",a[i][j]);
+                                    } else {
+                                        printf("\t");
+                                    }
+                                }
+                                printf("\n");
+                            }
+                            return 0;
+                        }  
+                </code></pre>
+            </div>
+        </section>
+        <section id="code-snippets">
+            <h3>#2.  WAP TO find the frequency of each unique element in a character.</h3>
+            <div class="snippet">
+                <pre><code class="language-C">
+                    #include<stdio.h>
+                        #include<conio.h>
+                        int main() {
+                            int i,j;
+                            char a[15],f[15];
+                            printf("Enter 15 characters without giving space:");
+                            for(i=0; i<15; i++) {
+                                scanf("%c,",&a[i]);
+                                f[i]=1;
+                                printf("\nEntered characters are: %c",a[i]);
+                        
+                            }
+                            for(i=0; i<15; i++) {
+                                if(f[i]==0)
+                                    continue;
+                                for(j=i+1; j<15; j++) {
+                                    if(f[j]==0)
+                                        continue;
+                                    if(a[i]==a[j]) {
+                                        f[i]++;
+                                        f[j]=0;
+                                    }
+                                }
+                            }
+                            for(i=0; i<15; i++) {
+                                if(f[i]!=0) {
+                                    printf("\nFrequency of %c is %d",a[i],f[i]);
+                                }
+                            }
+                            return 0;
+                        }          
+                </code></pre>
+            </div>
+        </section>
+        <section id="code-snippets">
+            <h3>#3.  WAP to take age input of 20 students and count the nuber of students having age between 10-15,16-20,21-25.</h3>
+            <div class="snippet">
+                <pre><code class="language-C">
+                    #include<stdio.h>
+                        #include<conio.h>
+                        int main()
+                        {
+                            int counta=0,countb=0,countc=0,i,a[20];
+                            for(i=0;i<20;i++)
+                            {
+                                printf("Enter the age of Students");
+                                scanf("%d",&a[i]);
+                            }
+                            for(i=0;i<20;i++)
+                            {
+                                if(a[i]>10&&a[i]<15)
+                                {
+                                    counta++;
+                                }
+                                else if( a[i]>16&&a[i]<20)
+                                {
+                                    countb++;
+                                }
+                                else if(a[i]>21&&a[i]<25)
+                                {
+                                    countc++;
+                                }
+                                
+                            }
+                            printf("\nStudents having age between 10-15 is %d",counta);
+                            printf("\nStudents having age between 16-20 is %d",countb);
+                            printf("\nStudents having age between 21-25 is %d",countc);
+                            return 0;
+                        }
+                        
+                        
+                </code></pre>
+            </div>
+        </section>
+
+        <section id="articles">
+            <h2>Articles</h2>
+            <div class="content-box">
+                <article>
+                    <h3>Understanding Data Structures</h3>
+                    <p>Data structures are essential for optimizing algorithms.</p>
+                </article>
+                <article>
+                    <h3>Mastering Algorithms</h3>
+                    <p>Algorithms help in solving complex computational problems efficiently.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Programming Hub | Designed by You</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

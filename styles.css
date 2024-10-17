@@ -1,0 +1,177 @@
+/* General styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1c1c1c;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+/* Light Theme */
+body.light-theme {
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Dark Theme */
+body.dark-theme {
+    background-color: #1e1e1e;
+    color: #f9f9f9;
+}
+/* Styling and positioning the theme toggle button */
+button#theme-toggle {
+    padding: 10px;
+    background-color: #333;
+    color: #ebebeb;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%; /* Make the button round */
+    width: 60px; /* Set fixed width */
+    height: 60px; /* Set fixed height */
+    position: absolute; /* Position the button in the header */
+    top: 20px; /* Distance from the top of the header */
+    right: 20px; /* Align it to the right */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the content in the button */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button#theme-toggle:hover {
+    background-color: #d6eca1; /* Change background color on hover */
+}
+
+header {
+    background-color: #0f0202;
+    text-align: center;
+    padding: 5px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 2px -2px gray;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: #dcf581;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #b6ee32;
+    font-weight: 600;
+}
+
+nav ul li a:hover {
+    color: #cbfa8e;
+}
+
+main {
+    padding: 30px;
+    max-width: 1200px;
+    margin: auto;
+    color: #b8802b;
+    
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+h2 {
+    border-bottom: 3px solid #bbce11;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.content-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    color: #b8802b;
+}
+
+article {
+    background-color: #282828;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 45%;
+}
+
+article h3 {
+    font-size: 1.5em;
+    color: #b0f173;
+}
+
+article p {
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+button {
+    background-color: #9be059;
+    color: #121212;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #e77d36;
+}
+
+.snippet {
+    background-color: #282828;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+pre {
+    color: #dff51d;
+    text-size-adjust: 60;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    background-color: #121212;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .content-box {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    article {
+        width: 100%;
+    }
+}
