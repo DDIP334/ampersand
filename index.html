@@ -178,6 +178,86 @@
                 </code></pre>
             </div>
         </section>
+                                     <section id="code-snippets">
+            <h3>#2.  WAP TO find the frequency of each unique element in a character.</h3>
+            <div class="snippet">
+                <pre><code class="language-C">
+                   #include <opencv2/opencv.hpp>
+#include <iostream>
+
+using namespace cv;
+using namespace std;
+
+int main() {
+    // 1. Open the webcam
+    VideoCapture cam(0); // 0 = default camera
+    if (!cam.isOpened()) {
+        cout << " Could not open the camera!" << endl;
+        return -1;
+    }
+
+    Mat frame;
+    cout << "Show your product to the camera.\n";
+    cout << "Press 's' to capture the image.\n";
+
+    // 2. Show webcam feed and wait for 's' key to capture
+    while (true) {
+        cam >> frame; // Read frame from camera
+        imshow("Webcam View", frame); // Show frame
+        if (waitKey(1) == 's') {
+            imwrite("captured/product.jpg", frame); // Save image
+            break;
+        }
+    }
+
+    cam.release(); // Close the webcam
+    destroyAllWindows();
+
+    // 3. Load the captured image and a template image to compare
+    Mat captured = imread("captured/product.jpg"); // From webcam
+    Mat templateImg = imread("templates/chemistry.jpg");
+    // Known product
+
+    if (captured.empty() || templateImg.empty()) {
+        cout << "Failed to load images!" << endl;
+        return -1;
+    }
+
+    // 4. Convert both images to grayscale for easier comparison
+    cvtColor(captured, captured, COLOR_BGR2GRAY);
+    cvtColor(templateImg, templateImg, COLOR_BGR2GRAY);
+
+    // 5. Resize both to same size
+    resize(captured, captured, Size(300, 300));
+    resize(templateImg, templateImg, Size(300, 300));
+
+    // 6. Compare images using template matching
+    Mat result;
+    matchTemplate(captured, templateImg, result, TM_SQDIFF); // TM_SQDIFF = lower is better
+
+    double minVal;
+    minMaxLoc(result, &minVal); // Find lowest matching value
+
+    cout << "Matching Score: " << minVal << endl;
+
+    // 7. Show result based on score
+    if (minVal < 1e9) {
+        cout << "\n=====  BILL =====" << endl;
+        cout << "Product: Chemistry Book" << endl;
+        cout << "Price: Rs. 500" << endl;
+        cout << "===================" << endl;
+    }
+    else {
+        cout << "Product not recognized." << endl;
+    }
+
+    return 0;
+}
+         
+                </code></pre>
+                
+            </div>
+        </section>
         <p style="color:rgb(46, 0, 0); font-size:25px" >Want to check out more programme then follow below button </p>
         <button class="readmore" Onclick="readmore()">Read More</button>
         <section id="articles">
